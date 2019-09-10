@@ -3,14 +3,14 @@
 
 #include "linked_list.h"
 
-nv_list *init_list(nv_list *list)
+nv_list *init_list(nv_list **list)
 {
-	if (list == NULL) {
+	if (*list == NULL) {
 		nv_list *new_list = (nv_list *)malloc(sizeof(nv_list));
 		new_list->head = NULL;
-		list = new_list;
+		*list = new_list;
 	}
-	return list;
+	return *list;
 }
 
 void insert_to_list(nv_list *list, int new_value)
@@ -88,19 +88,19 @@ void print_list(nv_list *list)
 	}
 }
 
-nv_list *delete_list(nv_list *list)
+nv_list *delete_list(nv_list **list)
 {
-	if (list != NULL) {
-		if (list->head != NULL) {
-			list_node *current = list->head;
+	if (*list != NULL) {
+		if ((*list)->head != NULL) {
+			list_node *current = (*list)->head;
 			while (current != NULL) {
 				list_node *temp = current;
 				current = temp->next;
 				free(temp);
 			}
 		}
-		free(list);
-		list = NULL;
+		free(*list);
+		*list = NULL;
 	}
-	return list;
+	return *list;
 }

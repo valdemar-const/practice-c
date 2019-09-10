@@ -5,7 +5,7 @@
 int main()
 {
 	nv_list* my_list = NULL;
-	my_list = init_list(my_list);
+	init_list(&my_list);
 	assert(my_list != NULL);
 	insert_to_list(my_list, 3);
 	insert_to_list(my_list, 2);
@@ -32,6 +32,6 @@ int main()
 
 	// print_list(head);
 
-	my_list = delete_list(my_list);
+	delete_list(&my_list);
 	assert(my_list == NULL);
 }
