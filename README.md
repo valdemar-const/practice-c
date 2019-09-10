@@ -22,9 +22,10 @@ Algorithms
 3. shell sort
 4. selection sort
 5. insertion sort
-6. merge sort
-7. pyramid sort
-8. gnome sort
+6. heap sort
+7. merge sort
+8. pyramid sort
+9. gnome sort
 
 Other:
 
