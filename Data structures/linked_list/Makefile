@@ -6,6 +6,7 @@ LDLIBS=
 CPPCFLAGS=-q --enable=all --suppress=missingIncludeSystem .
 
 $(P): $(OBJECTS)
+	$(CC) $(CFLAGS) $(OBJECTS) -o $(P)
 
 test: $(P)
 	valgrind --leak-check=full ./$(P)
