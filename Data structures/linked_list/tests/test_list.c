@@ -4,14 +4,15 @@
 
 int main()
 {
-	nv_list* my_list = NULL;
-	init_list(&my_list);
+	nv_list *my_list = init_list();
+
 	assert(my_list != NULL);
+	
 	insert_to_list(my_list, 3);
 	insert_to_list(my_list, 2);
 	insert_to_list(my_list, 1);
 	insert_to_list(my_list, 5);
-	
+
 	print_list(my_list);
 
 	assert(is_in_list(my_list, 1));
@@ -26,12 +27,7 @@ int main()
 
 	assert(!is_in_list(my_list, 5));
 	assert(!is_in_list(my_list, 3));
-	// head = remove_from_list(head, 1);
 
-	// assert(!is_in_list(head, 1));
-
-	// print_list(head);
-
-	delete_list(&my_list);
+	my_list = delete_list(my_list);
 	assert(my_list == NULL);
 }
