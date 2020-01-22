@@ -3,8 +3,7 @@
 
 int main()
 {
-	nv_tree my_tree = NULL;
-	nvt_init_tree(&my_tree);
+	nv_tree my_tree = nvt_init_tree();
 	assert(my_tree != NULL);
 
 	nvt_add_value(my_tree, 5);
@@ -21,5 +20,7 @@ int main()
 
 	nvt_print(my_tree);
 
-	nvt_delete_tree(&my_tree);
+	my_tree = nvt_delete_tree(my_tree);
+
+	assert(my_tree == NULL);
 }

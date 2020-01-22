@@ -3,14 +3,12 @@
 
 #include "linked_list.h"
 
-nv_list *init_list(nv_list **list)
+nv_list *init_list()
 {
-	if (*list == NULL) {
-		nv_list *new_list = (nv_list *)malloc(sizeof(nv_list));
-		new_list->head = NULL;
-		*list = new_list;
-	}
-	return *list;
+	nv_list *new_list = (nv_list *)malloc(sizeof(nv_list));
+	new_list->head = NULL;
+
+	return new_list;
 }
 
 void insert_to_list(nv_list *list, int new_value)
@@ -32,26 +30,24 @@ void insert_to_list(nv_list *list, int new_value)
 
 void remove_from_list(nv_list *list, int value)
 {
-	if (list != NULL) {
-		if (list->head != NULL) {
-			list_node *current = list->head;
-			list_node *prev = current;
+	if (list != NULL && list->head != NULL) {
+		list_node *current = list->head;
+		list_node *prev = current;
 
-			while (current != NULL) {
-				if (current->value != value) {
-					prev = current;
-					current = current->next;
+		while (current != NULL) {
+			if (current->value != value) {
+				prev = current;
+				current = current->next;
+			} else {
+				list_node *temp = current;
+				if (current != list->head) {
+					prev->next = current->next;
+					free(temp);
+					return;
 				} else {
-					list_node *temp = current;
-					if (current != list->head) {
-						prev->next = current->next;
-						free(temp);
-						return;
-					} else {
-						list->head = current->next;
-						free(temp);
-						return;
-					}
+					list->head = current->next;
+					free(temp);
+					return;
 				}
 			}
 		}
@@ -60,15 +56,13 @@ void remove_from_list(nv_list *list, int value)
 
 bool is_in_list(nv_list *list, int value)
 {
-	if (list != NULL) {
-		if (list->head != NULL) {
-			list_node *current = list->head;
-			while (current != NULL) {
-				if (current->value == value) {
-					return true;
-				}
-				current = current->next;
+	if (list != NULL && list->head != NULL) {
+		list_node *current = list->head;
+		while (current != NULL) {
+			if (current->value == value) {
+				return true;
 			}
+			current = current->next;
 		}
 	}
 	return false;
@@ -88,19 +82,19 @@ void print_list(nv_list *list)
 	}
 }
 
-nv_list *delete_list(nv_list **list)
+nv_list *delete_list(nv_list *list)
 {
-	if (*list != NULL) {
-		if ((*list)->head != NULL) {
-			list_node *current = (*list)->head;
+	if (list != NULL) {
+		if (list->head != NULL) {
+			list_node *current = list->head;
 			while (current != NULL) {
 				list_node *temp = current;
 				current = temp->next;
 				free(temp);
 			}
 		}
-		free(*list);
-		*list = NULL;
+		free(list);
+		list = NULL;
 	}
-	return *list;
+	return list;
 }

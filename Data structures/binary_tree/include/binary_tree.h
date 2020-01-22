@@ -1,3 +1,5 @@
+#pragma once
+
 #include <stdlib.h>
 #include <stdbool.h>
 
@@ -11,8 +13,8 @@ typedef struct tree_t {
 	tree_node root;
 } * nv_tree;
 
-nv_tree nvt_init_tree(nv_tree *tree);
-nv_tree nvt_delete_tree(nv_tree *tree);
+nv_tree nvt_init_tree();
+nv_tree nvt_delete_tree(nv_tree tree);
 
 void nvt_add_value(nv_tree tree, int new_value);
 

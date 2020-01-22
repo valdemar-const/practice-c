@@ -7,26 +7,22 @@ static void insert_value(tree_node *root, int new_value);
 static void print_tree(tree_node root);
 static bool is_in_tree(tree_node root, int value);
 
-nv_tree nvt_init_tree(nv_tree *tree)
+nv_tree nvt_init_tree()
 {
-	if (*tree == NULL) {
-		nv_tree new_tree = malloc(sizeof(struct tree_t));
-		new_tree->root = NULL;
+	nv_tree new_tree = malloc(sizeof(struct tree_t));
+	new_tree->root = NULL;
 
-		*tree = new_tree;
-		return *tree;
-	}
-	return *tree;
+	return new_tree;
 }
 
-nv_tree nvt_delete_tree(nv_tree *tree)
+nv_tree nvt_delete_tree(nv_tree tree)
 {
-	if (*tree != NULL) {
-		free_node_tree((*tree)->root);
-        free(*tree);
-		*tree = NULL;
+	if (tree != NULL) {
+		free_node_tree(tree->root);
+		free(tree);
+		tree = NULL;
 	}
-	return *tree;
+	return tree;
 }
 
 void nvt_add_value(nv_tree tree, int new_value)
@@ -38,18 +34,18 @@ void nvt_add_value(nv_tree tree, int new_value)
 
 bool nvt_is_int_tree(nv_tree tree, int value)
 {
-    bool answer = false;
-    if (tree != NULL){
-        answer = is_in_tree(tree->root, value);
-    }
-    return answer;
+	bool answer = false;
+	if (tree != NULL) {
+		answer = is_in_tree(tree->root, value);
+	}
+	return answer;
 }
 
 void nvt_print(nv_tree tree)
 {
-    if (tree != NULL){
-        print_tree(tree->root);
-    }
+	if (tree != NULL) {
+		print_tree(tree->root);
+	}
 }
 
 static void free_node_tree(tree_node root)
@@ -77,24 +73,25 @@ static void insert_value(tree_node *root, int new_value)
 	}
 }
 
-static void print_tree(tree_node root){
-    if (root != NULL){
-        print_tree(root->left);
-        printf("%d ", root->value);
-        print_tree(root->right);
-    }
+static void print_tree(tree_node root)
+{
+	if (root != NULL) {
+		print_tree(root->left);
+		printf("%d ", root->value);
+		print_tree(root->right);
+	}
 }
 
 static bool is_in_tree(tree_node root, int value)
 {
-    bool answer = false;
-    if (root != NULL){
-        if (root->value == value){
-            answer = true;
-        } else {
-            answer = answer || is_in_tree(root->left, value);
-            answer = answer || is_in_tree(root->right, value);
-        }
-    }
-    return answer;
+	bool answer = false;
+	if (root != NULL) {
+		if (root->value == value) {
+			answer = true;
+		} else {
+			answer = answer || is_in_tree(root->left, value);
+			answer = answer || is_in_tree(root->right, value);
+		}
+	}
+	return answer;
 }
