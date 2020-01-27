@@ -16,6 +16,7 @@ nv_list *delete_list(nv_list *list);
 
 void insert_to_list(nv_list *list, int new_value);
 void remove_from_list(nv_list *list, int value);
+nv_list *reverse_list(nv_list *head);
 
 bool is_in_list(nv_list *list, int value);
 

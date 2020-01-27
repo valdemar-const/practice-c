@@ -20,6 +20,9 @@ int main()
 	assert(is_in_list(my_list, 2));
 	assert(is_in_list(my_list, 5));
 
+	my_list = reverse_list(my_list);
+	print_list(my_list);
+
 	remove_from_list(my_list, 5);
 	remove_from_list(my_list, 3);
 

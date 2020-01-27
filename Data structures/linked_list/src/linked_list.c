@@ -17,11 +17,11 @@ void insert_to_list(nv_list *list, int new_value)
 	new_node->value = new_value;
 	new_node->next = NULL;
 
-	if (list->head == NULL) {
+	if (!list->head) {
 		list->head = new_node;
 	} else {
 		list_node *current = list->head;
-		while (current->next != NULL) {
+		while (current->next) {
 			current = current->next;
 		}
 		current->next = new_node;
@@ -30,11 +30,11 @@ void insert_to_list(nv_list *list, int new_value)
 
 void remove_from_list(nv_list *list, int value)
 {
-	if (list != NULL && list->head != NULL) {
+	if (list && list->head) {
 		list_node *current = list->head;
 		list_node *prev = current;
 
-		while (current != NULL) {
+		while (current) {
 			if (current->value != value) {
 				prev = current;
 				current = current->next;
@@ -56,9 +56,9 @@ void remove_from_list(nv_list *list, int value)
 
 bool is_in_list(nv_list *list, int value)
 {
-	if (list != NULL && list->head != NULL) {
+	if (list && list->head) {
 		list_node *current = list->head;
-		while (current != NULL) {
+		while (current) {
 			if (current->value == value) {
 				return true;
 			}
@@ -68,12 +68,19 @@ bool is_in_list(nv_list *list, int value)
 	return false;
 }
 
+static list_node *reverse(list_node *head);
+
+nv_list *reverse_list(nv_list *list) {
+	list->head = reverse(list->head);
+	return list;
+}
+
 void print_list(nv_list *list)
 {
-	if (list != NULL) {
-		if (list->head != NULL) {
+	if (list) {
+		if (list->head) {
 			list_node *current = list->head;
-			while (current != NULL) {
+			while (current) {
 				printf("%d ", current->value);
 				current = current->next;
 			}
@@ -84,10 +91,10 @@ void print_list(nv_list *list)
 
 nv_list *delete_list(nv_list *list)
 {
-	if (list != NULL) {
-		if (list->head != NULL) {
+	if (list) {
+		if (list->head) {
 			list_node *current = list->head;
-			while (current != NULL) {
+			while (current) {
 				list_node *temp = current;
 				current = temp->next;
 				free(temp);
@@ -97,4 +104,14 @@ nv_list *delete_list(nv_list *list)
 		list = NULL;
 	}
 	return list;
+}
+
+static list_node *reverse(list_node *head) {
+	if (!head || !head->next) {
+		return head;
+	}
+	list_node *tmp = reverse(head->next);
+	head->next->next = head;
+	head->next = NULL;
+	return tmp;
 }
