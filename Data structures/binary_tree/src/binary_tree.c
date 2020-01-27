@@ -2,22 +2,22 @@
 #include <stdlib.h>
 #include "binary_tree.h"
 
-static void free_node_tree(tree_node root);
-static void insert_value(tree_node *root, int new_value);
-static void print_tree(tree_node root);
-static bool is_in_tree(tree_node root, int value);
+static void free_node_tree(tree_node *root);
+static void insert_value(tree_node **root, int new_value);
+static void print_tree(tree_node *root);
+static bool is_in_tree(tree_node *root, int value);
 
-nv_tree nvt_init_tree()
+nv_tree *nvt_init_tree()
 {
-	nv_tree new_tree = malloc(sizeof(struct tree_t));
+	nv_tree *new_tree = malloc(sizeof(struct tree_t));
 	new_tree->root = NULL;
 
 	return new_tree;
 }
 
-nv_tree nvt_delete_tree(nv_tree tree)
+nv_tree *nvt_delete_tree(nv_tree *tree)
 {
-	if (tree != NULL) {
+	if (tree) {
 		free_node_tree(tree->root);
 		free(tree);
 		tree = NULL;
@@ -25,42 +25,42 @@ nv_tree nvt_delete_tree(nv_tree tree)
 	return tree;
 }
 
-void nvt_add_value(nv_tree tree, int new_value)
+void nvt_add_value(nv_tree *tree, int new_value)
 {
-	if (tree != NULL) {
+	if (tree) {
 		insert_value(&tree->root, new_value);
 	}
 }
 
-bool nvt_is_int_tree(nv_tree tree, int value)
+bool nvt_is_in_tree(nv_tree *tree, int value)
 {
 	bool answer = false;
-	if (tree != NULL) {
+	if (tree) {
 		answer = is_in_tree(tree->root, value);
 	}
 	return answer;
 }
 
-void nvt_print(nv_tree tree)
+void nvt_print(nv_tree *tree)
 {
-	if (tree != NULL) {
+	if (tree) {
 		print_tree(tree->root);
 	}
 }
 
-static void free_node_tree(tree_node root)
+static void free_node_tree(tree_node *root)
 {
-	if (root != NULL) {
+	if (root) {
 		free_node_tree(root->left);
 		free_node_tree(root->right);
 		free(root);
 	}
 }
 
-static void insert_value(tree_node *root, int new_value)
+static void insert_value(tree_node **root, int new_value)
 {
-	if (*root == NULL) {
-		tree_node new_node = malloc(sizeof(struct node_t));
+	if (!*root) {
+		tree_node *new_node = malloc(sizeof(tree_node));
 		new_node->value = new_value;
 		new_node->left = NULL;
 		new_node->right = NULL;
@@ -73,19 +73,19 @@ static void insert_value(tree_node *root, int new_value)
 	}
 }
 
-static void print_tree(tree_node root)
+static void print_tree(tree_node *root)
 {
-	if (root != NULL) {
+	if (root) {
 		print_tree(root->left);
 		printf("%d ", root->value);
 		print_tree(root->right);
 	}
 }
 
-static bool is_in_tree(tree_node root, int value)
+static bool is_in_tree(tree_node *root, int value)
 {
 	bool answer = false;
-	if (root != NULL) {
+	if (root) {
 		if (root->value == value) {
 			answer = true;
 		} else {
