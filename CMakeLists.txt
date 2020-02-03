@@ -8,3 +8,5 @@ enable_testing()
 
 add_subdirectory(Data\ structures/linked_list)
 add_subdirectory(Data\ structures/binary_tree)
+
+add_subdirectory(Sorting\ algorithms/bubble_sort)
