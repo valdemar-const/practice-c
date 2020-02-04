@@ -18,7 +18,7 @@ Data structures:
 Algorithms
 
 1. - [X] Bubble sort
-2. - [ ] quick sort
+2. - [X] quick sort
 3. - [ ] shell sort
 4. - [ ] selection sort
 5. - [ ] insertion sort
