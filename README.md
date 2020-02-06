@@ -17,15 +17,16 @@ Data structures:
 
 Algorithms
 
-1. - [X] Bubble sort
-2. - [X] quick sort
-3. - [ ] shell sort
-4. - [X] selection sort
-5. - [X] insertion sort
-6. - [ ] heap sort
-7. - [ ] merge sort
-8. - [ ] pyramid sort
-9. - [ ] gnome sort
+1. - [X] bubble sort
+2. - [ ] shaker sort
+3. - [X] quick sort
+4. - [ ] shell sort
+5. - [X] selection sort
+6. - [X] insertion sort
+7. - [ ] heap sort
+8. - [ ] merge sort
+9. - [ ] pyramid sort
+10. - [ ] gnome sort
 
 Other:
 
