@@ -20,14 +20,15 @@ Algorithms
 1. - [X] bubble sort
 2. - [X] shaker sort
 3. - [ ] comb sort
-4. - [X] selection sort
-5. - [X] insertion sort
-6. - [ ] shell sort
-7. - [X] quick sort
-8. - [ ] merge sort
-9. - [ ] heap sort
-10. - [ ] pyramid sort
-11. - [ ] gnome sort
+4. - [ ] odd-even sort
+5. - [X] selection sort
+6. - [X] insertion sort
+7. - [ ] shell sort
+8. - [X] quick sort
+9. - [ ] merge sort
+10. - [ ] heap sort
+11. - [ ] pyramid sort
+12. - [ ] gnome sort
 
 Other:
 
