@@ -21,7 +21,7 @@ Algorithms
 2. - [X] quick sort
 3. - [ ] shell sort
 4. - [X] selection sort
-5. - [ ] insertion sort
+5. - [X] insertion sort
 6. - [ ] heap sort
 7. - [ ] merge sort
 8. - [ ] pyramid sort
