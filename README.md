@@ -20,7 +20,7 @@ Algorithms
 1. - [X] Bubble sort
 2. - [X] quick sort
 3. - [ ] shell sort
-4. - [ ] selection sort
+4. - [X] selection sort
 5. - [ ] insertion sort
 6. - [ ] heap sort
 7. - [ ] merge sort
