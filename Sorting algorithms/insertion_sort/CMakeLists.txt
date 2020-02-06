@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.15)
+
+project(insertion_sort)
+
+add_library(nv_insertion_sort src/insertion_sort.c)
+target_include_directories(nv_insertion_sort PUBLIC include)
+
+add_executable(nv_insertion_sort_test tests/test_insertion_sort.c)
+target_link_libraries(nv_insertion_sort_test nv_insertion_sort)
+
+add_test(test_insertion_sort nv_insertion_sort_test)
