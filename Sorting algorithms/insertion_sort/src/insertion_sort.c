@@ -8,8 +8,16 @@ void ins_sort(void *first, size_t number, size_t size,
 	      int (*comp)(const void *, const void *))
 {
 	char *begin = (char *)first;
-	char *last = (char *)next(first, size * (number - 1));
-	
+	char *last = (char *)begin + size * (number - 1);
+	for (char *i = begin + size; i <= last; i += size) {
+		char *j = i;
+		char *p = prev(j, size);
+		while (comp(j, p) < 0 && j > begin) {
+			swap(j, p, size);
+			j -= size;
+			p -= size;
+		}
+	}
 }
 
 static void swap(void *lhs, void *rhs, size_t size)
