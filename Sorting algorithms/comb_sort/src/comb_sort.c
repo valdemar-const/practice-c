@@ -1,10 +1,26 @@
 #include "comb_sort.h"
+#include "bubble_sort.h"
+
+const double shrink_factor = 1.247;
 
 static void swap(void *lhs, void *rhs, size_t size);
 
 void csort(void *first, size_t number, size_t size,
-	   int (*comparator)(const void *, const void *))
+	   int (*comp)(const void *, const void *))
 {
+	char *begin = (char *)first;
+	char *last = (char *)first + (number - 1) * size;
+	size_t distance = (number - 1) / shrink_factor;
+	while (distance) {
+		char *j = begin + distance * size;
+		for (char *i = begin; j <= last; i += size, j += size) {
+			if (comp(i, j) > 0) {
+				swap(i, j, size);
+			}
+		}
+		distance /= shrink_factor;
+	}
+	bsort(first, number, size, comp);
 }
 
 static void swap(void *lhs, void *rhs, size_t size)

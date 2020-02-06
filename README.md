@@ -19,7 +19,7 @@ Algorithms
 
 1. - [X] bubble sort
 2. - [X] shaker sort
-3. - [ ] comb sort
+3. - [X] comb sort
 4. - [ ] odd-even sort
 5. - [X] selection sort
 6. - [X] insertion sort
