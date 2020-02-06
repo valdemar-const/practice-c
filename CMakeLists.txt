@@ -11,3 +11,4 @@ add_subdirectory(Data\ structures/binary_tree)
 
 add_subdirectory(Sorting\ algorithms/bubble_sort)
 add_subdirectory(Sorting\ algorithms/quick_sort)
+add_subdirectory(Sorting\ algorithms/selection_sort)
