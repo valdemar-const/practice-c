@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.15)
+
+project(selection_sort)
+
+add_library(nv_selection_sort src/selection_sort.c)
+target_include_directories(nv_selection_sort PUBLIC include)
+
+add_executable(nv_selection_sort_test tests/test_selection_sort.c)
+target_link_libraries(nv_selection_sort_test nv_selection_sort)
+
+add_test(test_selection_sort nv_selection_sort_test)
