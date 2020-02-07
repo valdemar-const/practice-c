@@ -23,7 +23,7 @@ Algorithms
 4. - [X] odd-even sort
 5. - [X] selection sort
 6. - [X] insertion sort
-7. - [ ] shell sort
+7. - [X] shell sort
 8. - [X] quick sort
 9. - [ ] merge sort
 10. - [ ] heap sort
