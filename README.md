@@ -7,9 +7,9 @@ Data structures:
 4. - [ ] queue
 5. - [ ] hash table
 6. - [ ] heap
-7.  - [ ] graph
-8.  - [ ] trie
-9.  - [ ] RB-tree
+7. - [ ] graph
+8. - [ ] trie
+9. - [ ] RB-tree
 10. - [ ] splay tree
 11. - [ ] arrays
 12. - [ ] set
