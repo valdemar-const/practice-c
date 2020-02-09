@@ -7,9 +7,9 @@ Data structures:
 4. - [ ] queue
 5. - [ ] hash table
 6. - [ ] heap
-7.  - [ ] graph
-8.  - [ ] trie
-9.  - [ ] RB-tree
+7. - [ ] graph
+8. - [ ] trie
+9. - [ ] RB-tree
 10. - [ ] splay tree
 11. - [ ] arrays
 12. - [ ] set
@@ -25,7 +25,7 @@ Algorithms
 6. - [X] insertion sort
 7. - [X] shell sort
 8. - [X] quick sort
-9. - [ ] merge sort
+9. - [X] merge sort
 10. - [ ] heap sort
 11. - [ ] pyramid sort
 12. - [ ] gnome sort
