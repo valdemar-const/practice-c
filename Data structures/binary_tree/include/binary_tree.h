@@ -20,4 +20,6 @@ void nvt_add_value(nv_tree *tree, int new_value);
 
 bool nvt_is_in_tree(nv_tree *tree, int value);
 
+void nvt_invert_tree(nv_tree *tree);
+
 void nvt_print(nv_tree *tree);

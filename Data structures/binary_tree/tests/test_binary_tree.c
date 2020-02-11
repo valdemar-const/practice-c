@@ -20,6 +20,16 @@ int main()
 
 	nvt_print(my_tree);
 
+	nvt_invert_tree(my_tree);
+
+	assert(nvt_is_in_tree(my_tree, 5));
+	assert(nvt_is_in_tree(my_tree, 2));
+	assert(nvt_is_in_tree(my_tree, 7));
+	assert(nvt_is_in_tree(my_tree, 1));
+	assert(nvt_is_in_tree(my_tree, 4));
+
+	nvt_print(my_tree);
+
 	my_tree = nvt_delete_tree(my_tree);
 
 	assert(!my_tree);
