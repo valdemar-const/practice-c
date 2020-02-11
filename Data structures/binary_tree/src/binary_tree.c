@@ -6,6 +6,7 @@ static void free_node_tree(tree_node *root);
 static void insert_value(tree_node **root, int new_value);
 static void print_tree(tree_node *root);
 static bool is_in_tree(tree_node *root, int value);
+static tree_node *invert_tree(tree_node *root);
 
 nv_tree *nvt_init_tree()
 {
@@ -73,6 +74,14 @@ static void insert_value(tree_node **root, int new_value)
 	}
 }
 
+void nvt_invert_tree(nv_tree *tree)
+{
+	if (!tree->root) {
+		return;
+	}
+	invert_tree(tree->root);
+}
+
 static void print_tree(tree_node *root)
 {
 	if (root) {
@@ -94,4 +103,14 @@ static bool is_in_tree(tree_node *root, int value)
 		}
 	}
 	return answer;
+}
+
+static tree_node *invert_tree(tree_node *root)
+{
+	if (root) {
+		tree_node *temp = root->left;
+		root->left = invert_tree(root->right);
+		root->right = invert_tree(temp);
+	}
+	return root;
 }
