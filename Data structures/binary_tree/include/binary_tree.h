@@ -11,15 +11,15 @@ typedef struct node_t {
 
 typedef struct tree_t {
 	tree_node *root;
-} nv_tree;
+} ya_tree;
 
-nv_tree *nvt_init_tree();
-nv_tree *nvt_delete_tree(nv_tree *tree);
+ya_tree *nvt_init_tree();
+ya_tree *nvt_delete_tree(ya_tree *tree);
 
-void nvt_add_value(nv_tree *tree, int new_value);
+void nvt_add_value(ya_tree *tree, int new_value);
 
-bool nvt_is_in_tree(nv_tree *tree, int value);
+bool nvt_is_in_tree(ya_tree *tree, int value);
 
-void nvt_invert_tree(nv_tree *tree);
+void nvt_invert_tree(ya_tree *tree);
 
-void nvt_print(nv_tree *tree);
+void nvt_print(ya_tree *tree);

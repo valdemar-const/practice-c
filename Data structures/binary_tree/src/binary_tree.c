@@ -8,15 +8,15 @@ static void print_tree(tree_node *root);
 static bool is_in_tree(tree_node *root, int value);
 static tree_node *invert_tree(tree_node *root);
 
-nv_tree *nvt_init_tree()
+ya_tree *nvt_init_tree()
 {
-	nv_tree *new_tree = malloc(sizeof(struct tree_t));
+	ya_tree *new_tree = malloc(sizeof(struct tree_t));
 	new_tree->root = NULL;
 
 	return new_tree;
 }
 
-nv_tree *nvt_delete_tree(nv_tree *tree)
+ya_tree *nvt_delete_tree(ya_tree *tree)
 {
 	if (tree) {
 		free_node_tree(tree->root);
@@ -26,14 +26,14 @@ nv_tree *nvt_delete_tree(nv_tree *tree)
 	return tree;
 }
 
-void nvt_add_value(nv_tree *tree, int new_value)
+void nvt_add_value(ya_tree *tree, int new_value)
 {
 	if (tree) {
 		insert_value(&tree->root, new_value);
 	}
 }
 
-bool nvt_is_in_tree(nv_tree *tree, int value)
+bool nvt_is_in_tree(ya_tree *tree, int value)
 {
 	bool answer = false;
 	if (tree) {
@@ -42,7 +42,7 @@ bool nvt_is_in_tree(nv_tree *tree, int value)
 	return answer;
 }
 
-void nvt_print(nv_tree *tree)
+void nvt_print(ya_tree *tree)
 {
 	if (tree) {
 		print_tree(tree->root);
@@ -74,7 +74,7 @@ static void insert_value(tree_node **root, int new_value)
 	}
 }
 
-void nvt_invert_tree(nv_tree *tree)
+void nvt_invert_tree(ya_tree *tree)
 {
 	if (!tree->root) {
 		return;

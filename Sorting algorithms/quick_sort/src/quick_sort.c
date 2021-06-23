@@ -7,7 +7,7 @@ static void swap(void *lhs, void *rhs, size_t size);
 static void *partition(void *first, size_t number, size_t size,
 		       comparef_t comparator);
 
-void nv_qsort(void *first, size_t number, size_t size, comparef_t comparator)
+void ya_qsort(void *first, size_t number, size_t size, comparef_t comparator)
 {
 	char *begin = (char *)first;
 	char *last = begin + (number - 1) * size;
@@ -18,8 +18,8 @@ void nv_qsort(void *first, size_t number, size_t size, comparef_t comparator)
 			(char *)partition(first, number, size, comparator);
 		size_t left_number = (pivot - begin + size) / size;
 		size_t right_number = (last - pivot) / size;
-		nv_qsort(begin, left_number, size, comparator);
-		nv_qsort(pivot + size, right_number, size, comparator);
+		ya_qsort(begin, left_number, size, comparator);
+		ya_qsort(pivot + size, right_number, size, comparator);
 	}
 }
 

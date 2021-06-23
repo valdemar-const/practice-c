@@ -5,4 +5,4 @@
 /**
  * @brief shell sort
  */
-void shl_sort(void *first, size_t number, size_t size, int (*comparator)(const void *, const void *));
+void ya_shl_sort(void *first, size_t number, size_t size, int (*comparator)(const void *, const void *));

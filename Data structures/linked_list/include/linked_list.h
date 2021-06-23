@@ -9,15 +9,15 @@ typedef struct node_t {
 
 typedef struct list_t {
 	list_node *head;
-} nv_list;
+} ya_list;
 
-nv_list *init_list();
-nv_list *delete_list(nv_list *list);
+ya_list *init_list();
+ya_list *delete_list(ya_list *list);
 
-void insert_to_list(nv_list *list, int new_value);
-void remove_from_list(nv_list *list, int value);
-nv_list *reverse_list(nv_list *head);
+void insert_to_list(ya_list *list, int new_value);
+void remove_from_list(ya_list *list, int value);
+ya_list *reverse_list(ya_list *head);
 
-bool is_in_list(nv_list *list, int value);
+bool is_in_list(ya_list *list, int value);
 
-void print_list(nv_list *list);
+void print_list(ya_list *list);

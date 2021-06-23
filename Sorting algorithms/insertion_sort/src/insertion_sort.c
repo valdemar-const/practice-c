@@ -4,7 +4,7 @@ static void swap(void *lhs, void *rhs, size_t size);
 static void *next(void *pointer, size_t size);
 static void *prev(void *pointer, size_t size);
 
-void ins_sort(void *first, size_t number, size_t size, comparef_t comparator)
+void ya_ins_sort(void *first, size_t number, size_t size, comparef_t comparator)
 {
 	char *begin = (char *)first;
 	char *last = (char *)begin + size * (number - 1);

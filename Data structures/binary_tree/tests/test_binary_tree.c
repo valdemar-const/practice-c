@@ -3,7 +3,7 @@
 
 int main()
 {
-	nv_tree *my_tree = nvt_init_tree();
+	ya_tree *my_tree = nvt_init_tree();
 	assert(my_tree);
 
 	nvt_add_value(my_tree, 5);

@@ -11,4 +11,4 @@
  * @param size element size in bytes
  * @param comparator function to compare elements
  */
-void msort(void *first, size_t number, size_t size, comparef_t comparator);
+void ya_msort(void *first, size_t number, size_t size, comparef_t comparator);

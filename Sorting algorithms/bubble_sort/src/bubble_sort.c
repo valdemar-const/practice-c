@@ -2,7 +2,7 @@
 
 static void swap(void *lhs, void *rhs, size_t size);
 
-void bsort(void *first, size_t number, size_t size, comparef_t comparator)
+void ya_bsort(void *first, size_t number, size_t size, comparef_t comparator)
 {
 	for (size_t i = 0; i < number - 1; ++i) {
 		for (size_t j = 0; j < number - i - 1; ++j) {

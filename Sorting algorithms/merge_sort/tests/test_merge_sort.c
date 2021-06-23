@@ -27,7 +27,7 @@ int main(void)
 #endif
 	assert(!is_sorted_arr(array, max_size));
 
-	msort(array, max_size, sizeof(int), int_cmp);
+	ya_msort(array, max_size, sizeof(int), int_cmp);
 #ifdef DEBUG_PRINT
 	print_arr(array, max_size);
 #endif

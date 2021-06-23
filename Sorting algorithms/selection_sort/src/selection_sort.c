@@ -5,7 +5,7 @@ static void *next(void *pointer, size_t size);
 static void *prev(void *pointer, size_t size);
 static void *min(void *first, void *last, size_t size, comparef_t comparator);
 
-void sel_sort(void *first, size_t number, size_t size, comparef_t comparator)
+void ya_sel_sort(void *first, size_t number, size_t size, comparef_t comparator)
 {
 	char *begin = (char *)first;
 	char *last = (char *)next(first, size * (number - 1));

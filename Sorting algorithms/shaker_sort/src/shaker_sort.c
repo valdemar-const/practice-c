@@ -2,7 +2,7 @@
 
 static void swap(void *lhs, void *rhs, size_t size);
 
-void shr_sort(void *first, size_t number, size_t size,
+void ya_shr_sort(void *first, size_t number, size_t size,
 	      comparef_t comparator)
 {
 	char *begin = (char *)first;

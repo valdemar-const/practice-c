@@ -1,8 +1,8 @@
-#include <odd-even_sort.h>
+#include <oddeven_sort.h>
 
 static void swap(void *lhs, void *rhs, size_t size);
 
-void oesort(void *first, size_t number, size_t size,
+void ya_oesort(void *first, size_t number, size_t size,
 	    comparef_t comparator)
 {
 	char *begin = (char *)first;

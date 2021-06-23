@@ -5,7 +5,7 @@ const double shrink_factor = 1.247;
 
 static void swap(void *lhs, void *rhs, size_t size);
 
-void csort(void *first, size_t number, size_t size, comparef_t comparator)
+void ya_csort(void *first, size_t number, size_t size, comparef_t comparator)
 {
 	char *begin = (char *)first;
 	char *last = (char *)first + (number - 1) * size;
@@ -19,7 +19,7 @@ void csort(void *first, size_t number, size_t size, comparef_t comparator)
 		}
 		distance /= shrink_factor;
 	}
-	bsort(first, number, size, comparator);
+	ya_bsort(first, number, size, comparator);
 }
 
 static void swap(void *lhs, void *rhs, size_t size)

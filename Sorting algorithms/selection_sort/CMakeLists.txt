@@ -1,12 +1,10 @@
-cmake_minimum_required(VERSION 3.15)
+add_library(ya_selection_sort src/selection_sort.c)
+target_include_directories(ya_selection_sort PUBLIC include)
+target_link_libraries(ya_selection_sort common_sort_def)
+target_compile_options(ya_selection_sort PRIVATE -Wno-unused-function)
 
-project(selection_sort)
+add_executable(ya_selection_sort_test tests/test_selection_sort.c)
+target_link_libraries(ya_selection_sort_test ya_selection_sort)
+target_compile_options(ya_selection_sort_test PRIVATE -Wno-unused-function)
 
-add_library(nv_selection_sort src/selection_sort.c)
-target_include_directories(nv_selection_sort PUBLIC include)
-target_link_libraries(nv_selection_sort common_sort_def)
-
-add_executable(nv_selection_sort_test tests/test_selection_sort.c)
-target_link_libraries(nv_selection_sort_test nv_selection_sort)
-
-add_test(test_selection_sort nv_selection_sort_test)
+add_test(test_selection_sort ya_selection_sort_test)

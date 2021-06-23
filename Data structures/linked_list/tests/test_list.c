@@ -4,7 +4,7 @@
 
 int main()
 {
-	nv_list *my_list = init_list();
+	ya_list *my_list = init_list();
 
 	assert(my_list != NULL);
 	

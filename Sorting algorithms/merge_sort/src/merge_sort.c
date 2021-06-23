@@ -9,7 +9,7 @@ static void swap(void *lhs, void *rhs, size_t size);
 static void merge(void *left, size_t left_number, void *right,
 		  size_t right_number, size_t size, comparef_t comparator);
 
-void msort(void *first, size_t number, size_t size, comparef_t comparator)
+void ya_msort(void *first, size_t number, size_t size, comparef_t comparator)
 {
 	if (number == 1) {
 		return;
@@ -18,8 +18,8 @@ void msort(void *first, size_t number, size_t size, comparef_t comparator)
 	size_t left_size = number - number / 2;
 	size_t right_size = number - left_size;
 	char *middle = begin + left_size * size;
-	msort(begin, left_size, size, comparator);
-	msort(middle, right_size, size, comparator);
+	ya_msort(begin, left_size, size, comparator);
+	ya_msort(middle, right_size, size, comparator);
 	merge(begin, left_size, middle, right_size, size, comparator);
 }
 

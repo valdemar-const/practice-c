@@ -1,8 +1,18 @@
 cmake_minimum_required(VERSION 3.15)
 
-project(c-practice VERSION 0.11 LANGUAGES C)
+project(
+    YAAL
+    VERSION 0.11
+    DESCRIPTION "Yet another algorithm library"
+    HOMEPAGE_URL "https://github.com/valdemar-const/practice-c"
+    LANGUAGES C
+)
+
 set(CMAKE_C_STANDARD 11)
-add_compile_options(-Wall -Wextra -Werror -Wno-unused-function -std=c11 -pedantic)
+set(CMAKE_C_STANDARD_REQUIRED ON)
+set(CMAKE_C_EXTENSIONS OFF)
+
+add_compile_options(-Wall -Wextra -Werror -pedantic)
 
 enable_testing()
 

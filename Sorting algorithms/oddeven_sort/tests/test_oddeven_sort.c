@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#include "odd-even_sort.h"
+#include "oddeven_sort.h"
 
 static int int_cmp(const void *lhs, const void *rhs);
 static inline void set_intarr_rnd(int *array, size_t size);
@@ -21,7 +21,7 @@ int main(void)
 
 	assert(!is_sorted_arr(array, max_size));
 
-	oesort(array, max_size, sizeof(int), int_cmp);
+	ya_oesort(array, max_size, sizeof(int), int_cmp);
 
 	assert(is_sorted_arr(array, max_size));
 

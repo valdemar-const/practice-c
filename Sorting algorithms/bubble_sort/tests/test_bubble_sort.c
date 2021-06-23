@@ -21,7 +21,7 @@ int main(void)
 
 	assert(!is_sorted_arr(array, max_size));
 
-	bsort(array, max_size, sizeof(int), int_cmp);
+	ya_bsort(array, max_size, sizeof(int), int_cmp);
 
 	assert(is_sorted_arr(array, max_size));
 
