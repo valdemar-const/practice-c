@@ -1,10 +1,10 @@
-add_library(ya_insertion_sort src/insertion_sort.c)
-target_include_directories(ya_insertion_sort PUBLIC include)
-target_link_libraries(ya_insertion_sort common_sort_def)
-target_compile_options(ya_insertion_sort PRIVATE -Wno-unused-function)
+add_library(insertion_sort src/insertion_sort.c)
+target_include_directories(insertion_sort PUBLIC include)
+target_link_libraries(insertion_sort common_sort_def)
+target_compile_options(insertion_sort PRIVATE -Wno-unused-function)
 
-add_executable(ya_insertion_sort_test tests/test_insertion_sort.c)
-target_link_libraries(ya_insertion_sort_test ya_insertion_sort)
-target_compile_options(ya_insertion_sort_test PRIVATE -Wno-unused-function)
+add_executable(insertion_sort_test tests/test_insertion_sort.c)
+target_link_libraries(insertion_sort_test insertion_sort)
+target_compile_options(insertion_sort_test PRIVATE -Wno-unused-function)
 
-add_test(test_insertion_sort ya_insertion_sort_test)
+add_test(test_insertion_sort insertion_sort_test)
