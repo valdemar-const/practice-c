@@ -2,19 +2,15 @@ cmake_minimum_required(VERSION 3.15)
 
 project(c-practice VERSION 0.0.1 LANGUAGES C)
 set(CMAKE_C_STANDARD 11)
-add_compile_options(-Wall -Wextra -std=c11 -pedantic)
+add_compile_options(-Wall -Wextra -Werror -Wno-unused-function -std=c11 -pedantic)
 
 enable_testing()
+
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 
 add_subdirectory(Data\ structures/linked_list)
 add_subdirectory(Data\ structures/binary_tree)
 
-add_subdirectory(Sorting\ algorithms/bubble_sort)
-add_subdirectory(Sorting\ algorithms/quick_sort)
-add_subdirectory(Sorting\ algorithms/selection_sort)
-add_subdirectory(Sorting\ algorithms/insertion_sort)
-add_subdirectory(Sorting\ algorithms/shaker_sort)
-add_subdirectory(Sorting\ algorithms/comb_sort)
-add_subdirectory(Sorting\ algorithms/odd-even_sort)
-add_subdirectory(Sorting\ algorithms/shell_sort)
-add_subdirectory(Sorting\ algorithms/merge_sort)
+add_subdirectory(Sorting\ algorithms)

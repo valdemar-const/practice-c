@@ -1,0 +1,3 @@
+add_library(common_sort_def INTERFACE)
+target_sources(common_sort_def INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/include/sort_common_definitions.h)
+target_include_directories(common_sort_def INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/include)

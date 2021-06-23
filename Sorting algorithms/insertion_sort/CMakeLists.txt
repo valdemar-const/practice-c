@@ -4,6 +4,7 @@ project(insertion_sort)
 
 add_library(nv_insertion_sort src/insertion_sort.c)
 target_include_directories(nv_insertion_sort PUBLIC include)
+target_link_libraries(nv_insertion_sort common_sort_def)
 
 add_executable(nv_insertion_sort_test tests/test_insertion_sort.c)
 target_link_libraries(nv_insertion_sort_test nv_insertion_sort)

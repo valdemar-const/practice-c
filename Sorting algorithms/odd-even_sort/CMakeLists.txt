@@ -4,7 +4,7 @@ project(odd-even_sort)
 
 add_library(nv_odd-even_sort src/odd-even_sort.c)
 target_include_directories(nv_odd-even_sort PUBLIC include)
-target_link_libraries(nv_odd-even_sort PUBLIC nv_bubble_sort)
+target_link_libraries(nv_odd-even_sort common_sort_def)
 
 add_executable(odd-even_sort_test tests/test_odd-even_sort.c)
 target_link_libraries(odd-even_sort_test nv_odd-even_sort)

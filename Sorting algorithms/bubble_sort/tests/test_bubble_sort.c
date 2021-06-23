@@ -1,9 +1,9 @@
+#include <bubble_sort.h>
+
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
-#include "bubble_sort.h"
 
 static int int_cmp(const void *lhs, const void *rhs);
 static inline void set_intarr_rnd(int *array, size_t size);

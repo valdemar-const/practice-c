@@ -1,25 +1,25 @@
+#include <quick_sort.h>
+
 #include <stdlib.h>
 #include <string.h>
 
-#include "quick_sort.h"
-
 static void swap(void *lhs, void *rhs, size_t size);
 static void *partition(void *first, size_t number, size_t size,
-		       int (*comp)(const void *, const void *));
+		       comparef_t comparator);
 
-void nv_qsort(void *first, size_t number, size_t size,
-	      int (*comp)(const void *, const void *))
+void nv_qsort(void *first, size_t number, size_t size, comparef_t comparator)
 {
 	char *begin = (char *)first;
 	char *last = begin + (number - 1) * size;
-	if (number == 2 && comp(begin, last) <= 0)
+	if (number == 2 && comparator(begin, last) <= 0)
 		return;
 	if (begin < last) {
-		char *pivot = (char *)partition(first, number, size, comp);
+		char *pivot =
+			(char *)partition(first, number, size, comparator);
 		size_t left_number = (pivot - begin + size) / size;
 		size_t right_number = (last - pivot) / size;
-		nv_qsort(begin, left_number, size, comp);
-		nv_qsort(pivot + size, right_number, size, comp);
+		nv_qsort(begin, left_number, size, comparator);
+		nv_qsort(pivot + size, right_number, size, comparator);
 	}
 }
 
@@ -35,7 +35,7 @@ static void swap(void *lhs, void *rhs, size_t size)
 }
 
 static void *partition(void *first, size_t number, size_t size,
-		       int (*comp)(const void *, const void *))
+		       comparef_t comparator)
 {
 	char *begin = (char *)first;
 	char *last = begin + (number - 1) * size;
@@ -47,10 +47,10 @@ static void *partition(void *first, size_t number, size_t size,
 	while (1) {
 		do {
 			i += size;
-		} while (comp(i, pivot) < 0);
+		} while (comparator(i, pivot) < 0);
 		do {
 			j -= size;
-		} while (comp(j, pivot) > 0);
+		} while (comparator(j, pivot) > 0);
 		if (i >= j) {
 			free(pivot);
 			return j;

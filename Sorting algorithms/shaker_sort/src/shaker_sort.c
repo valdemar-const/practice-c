@@ -3,7 +3,7 @@
 static void swap(void *lhs, void *rhs, size_t size);
 
 void shr_sort(void *first, size_t number, size_t size,
-	      int (*comp)(const void *, const void *))
+	      comparef_t comparator)
 {
 	char *begin = (char *)first;
 	char *last = (char *)first + size * (number - 1);
@@ -11,13 +11,13 @@ void shr_sort(void *first, size_t number, size_t size,
 		char *new_begin = last - size;
 		char *new_end = begin;
 		for (char *i = begin; i < last; i += size) {
-			if (comp(i, i+size) > 0) {
+			if (comparator(i, i+size) > 0) {
 				swap(i, i+size, size);
 			}
 		}
 		last -= size;
 		for (char *i = new_begin; i > new_end; i -= size) {
-			if (comp(i, i-size) < 0) {
+			if (comparator(i, i-size) < 0) {
 				swap(i, i-size, size);
 			}
 		}

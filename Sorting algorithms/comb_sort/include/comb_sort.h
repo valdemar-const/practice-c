@@ -1,5 +1,7 @@
-#include <stddef.h>
+#pragma once
 
+#include <sort_common_definitions.h>
+#include <stddef.h>
 /**
  * @brief sorting an array by comb sort algorithm
  * 
@@ -8,4 +10,4 @@
  * @param size element size in bytes
  * @param comparator function to compare elements
  */
-void csort (void *first, size_t number, size_t size, int (* comp)(const void *, const void *));
+void csort (void *first, size_t number, size_t size, comparef_t comparator);

@@ -4,15 +4,14 @@ static void swap(void *lhs, void *rhs, size_t size);
 static void *next(void *pointer, size_t size);
 static void *prev(void *pointer, size_t size);
 
-void ins_sort(void *first, size_t number, size_t size,
-	      int (*comp)(const void *, const void *))
+void ins_sort(void *first, size_t number, size_t size, comparef_t comparator)
 {
 	char *begin = (char *)first;
 	char *last = (char *)begin + size * (number - 1);
 	for (char *i = begin + size; i <= last; i += size) {
 		char *j = i;
 		char *p = prev(j, size);
-		while (comp(j, p) < 0 && j > begin) {
+		while (comparator(j, p) < 0 && j > begin) {
 			swap(j, p, size);
 			j -= size;
 			p -= size;

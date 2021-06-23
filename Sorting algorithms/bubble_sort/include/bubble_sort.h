@@ -1,4 +1,7 @@
+#pragma once
+
 #include <stddef.h>
+#include <sort_common_definitions.h>
 
 /**
  * @brief sorting an array by bubble sort algorithm
@@ -8,4 +11,4 @@
  * @param size element size in bytes
  * @param comparator function to compare elements
  */
-void bsort (void *first, size_t number, size_t size, int (* comparator)(const void *, const void *));
+void bsort (void *first, size_t number, size_t size, comparef_t comparator);

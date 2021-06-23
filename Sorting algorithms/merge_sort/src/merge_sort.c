@@ -1,15 +1,15 @@
+#include <merge_sort.h>
+
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
-#include "merge_sort.h"
+#include <inttypes.h>
 
 static void swap(void *lhs, void *rhs, size_t size);
 static void merge(void *left, size_t left_number, void *right,
-		  size_t right_number, size_t size,
-		  int (*comp)(const void *, const void *));
+		  size_t right_number, size_t size, comparef_t comparator);
 
-void msort(void *first, size_t number, size_t size,
-	   int (*comp)(const void *, const void *))
+void msort(void *first, size_t number, size_t size, comparef_t comparator)
 {
 	if (number == 1) {
 		return;
@@ -18,9 +18,9 @@ void msort(void *first, size_t number, size_t size,
 	size_t left_size = number - number / 2;
 	size_t right_size = number - left_size;
 	char *middle = begin + left_size * size;
-	msort(begin, left_size, size, comp);
-	msort(middle, right_size, size, comp);
-	merge(begin, left_size, middle, right_size, size, comp);
+	msort(begin, left_size, size, comparator);
+	msort(middle, right_size, size, comparator);
+	merge(begin, left_size, middle, right_size, size, comparator);
 }
 
 static void swap(void *lhs, void *rhs, size_t size)
@@ -35,8 +35,7 @@ static void swap(void *lhs, void *rhs, size_t size)
 }
 
 static void merge(void *left, size_t left_number, void *right,
-		  size_t right_number, size_t size,
-		  int (*comp)(const void *, const void *))
+		  size_t right_number, size_t size, comparef_t comparator)
 {
 	size_t buff_size = (left_number + right_number) * size;
 	char *buffer = (char *)malloc(buff_size);
@@ -45,7 +44,7 @@ static void merge(void *left, size_t left_number, void *right,
 	char *p_right = (char *)right;
 	char *result = (char *)left;
 	while (left_number && right_number) {
-		if (comp(p_left, p_right) <= 0) {
+		if (comparator(p_left, p_right) <= 0) {
 			memcpy(p_buffer, p_left, size);
 			p_left += size;
 			p_buffer += size;
@@ -57,7 +56,7 @@ static void merge(void *left, size_t left_number, void *right,
 			--right_number;
 		}
 	}
-	size_t remainder = abs(left_number - right_number);
+	size_t remainder = llabs((long long)(left_number - right_number));
 	char *rem_src =
 		(remainder && left_number > right_number) ? p_left : p_right;
 	while (remainder) {

@@ -1,9 +1,9 @@
+#include <shell_sort.h>
+
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
-#include "shell_sort.h"
 
 // #define DEBUG_PRINT
 
